@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <body>
+    <h1>Cargar registros a Shopify</h1>
+    <button  type="submit" onClick="location.href = '/';">Inicio</button > 
+    <button  type="submit" onClick="location.href = '/admin/';">Registrarse</button > 
+	<button  type="submit" onClick="location.href = '/leer_datos/';"  >Leer datos</button > 
+	<button  type="submit" onClick="location.href = '/cargar_todo/';"  >Cargar todo</button > 
+	<h3>Clientes a cargar a Shopify</h3>
+    <p style="background-color: #FFFF00" id="acc">{{ mensaje }}</p>
+        <table>
+            <tr style="font-weight:bold">
+                <td width="20%">No</td>
+                {% for fa in customer_dict.0.keys %}
+                    <td width="20%">{{ fa }}</td>    
+                {%  endfor %}
+                <td width="20%">Acción</td>
+            </tr>  
+            {% for customer in customer_dict %}
+                <tr>
+                    <td width="20%">{{forloop.counter}}</td>
+                    {% for ff in customer.values %}
+                        <td width="20%">{{ ff }}</td>
+                    {%  endfor %}
+                    <td><button type="submit" name="id" value="cu-{{forloop.counter}}" onClick="location.href = '/cargar/';">Cargar</button></td>
+                </tr>
+            {%  endfor %}         
+        </table>
+        <h3>Productos a cargar a Shopify</h3>
+        <table>
+            <tr style="font-weight:bold">
+                <td width="20%">No</td>
+                {% for fa in pro_dict.0.keys %}
+                    <td width="20%">{{ fa }}</td>    
+                {%  endfor %}
+                <td width="20%">Acción</td>
+            </tr>  
+            {% for prod in pro_dict %}
+                <tr>
+                    <td width="20%">{{forloop.counter}}</td>
+                    {% for ff in prod.values %}
+                        <td width="20%">{{ ff }}</td>
+                    {%  endfor %}
+                    <td><button type="submit" name="id" value="pr-{{forloop.counter}}" onClick="location.href = '/cargar/';">Cargar</button></td>
+                </tr>
+            {%  endfor %}         
+        </table>
+        <h3>Facturas a cargar a Shopify</h3>
+        <table>
+            <tr style="font-weight:bold">
+                <td width="20%">No</td>
+                {% for fa in fac_dict.0.keys %}
+                    <td width="20%">{{ fa }}</td>    
+                {%  endfor %}
+                <td width="20%">Acción</td>
+            </tr>  
+            {% for fact in fac_dict %}
+                <tr>
+                    <td width="20%">{{forloop.counter}}</td>
+                    {% for ff in fact.values %}
+                        <td width="20%">{{ ff }}</td>
+                    {%  endfor %}
+                    <td><button type="submit" name="id" value="fa-{{forloop.counter}}" onClick="location.href = '/cargar/';">Cargar</button></td>
+                </tr>
+            {%  endfor %}         
+        </table>
+        <!-- Comentario -->
+    </body>
+</html>

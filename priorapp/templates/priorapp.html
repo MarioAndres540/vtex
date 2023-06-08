@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+<link rel="stylesheet" href="{% static 'vitrinaimagen.css' %}">
+<body>
+
+<nav>
+	<a href="#" onClick="location.href = '/';">Cargar</a>
+	<a href="#" onClick="location.href = '/cargar/';">Análisis</a>
+	<a href="#">Priorización</a>
+	<a href="#">Vitrina</a>
+	<a href="#">Exportar</a>
+	<div class="animation start-home"></div>
+</nav>
+
+<h1>Optimización de Vitrinas</h1>
+
+
+<h2>
+<form name='filename' method = "post" action = "{% url 'cargar' %}">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    {% csrf_token %}
+    <button  type="submit" onClick="filename.submit();">Cargar archivo</button > <br>
+    <button  type="submit" onClick="filename.submit();">Cargar de VTEX</button > 
+</form>
+
+</h2>
+
+
+
+
+<p>
+  By <span>Copyriht: JairDuván</span>
+</p>
+
+</body>
+</html>

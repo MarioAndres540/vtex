@@ -1,0 +1,92 @@
+body {
+  background-color: silver;
+  font-family: verdana;
+}
+
+h1 {
+    border: 2px #eee solid;
+    color: brown;
+    text-align: left;
+    padding: 10px;
+}
+h2 {
+    border: 2px #eee solid;
+    color: brown;
+    text-align: left;
+    padding: 9px;
+}
+h3 {
+    border: 2px #eee solid;
+    color: brown;
+    text-align: left;
+    padding: 8px;
+}
+
+table{border-collapse:collapse;}
+th,tr,td{
+	border:1px solid #000;
+	width:150px;
+	height:45px;
+	vertical-align:middle;
+	text-align:center;
+}
+th{
+	color:#fff;
+	background-color: #252525;
+}
+
+tr:nth-child(odd) td{
+	background-color:#eee;
+}
+
+button {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0.05em rgba(0, 0, 0, 0.4);
+    color: brown;
+    display: inline-block;
+    font: bold 1.5em 'Trebuchet MS',Arial,Helvetica;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+button, button span {
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+}
+button span {
+    background-size: 3px 3px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    display: block;
+    padding: 0.5em 2.5em;
+}
+button:hover {
+    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.4);
+}
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 720px;
+  margin: 0 auto;
+  height: 100vh;
+  list-style: none;
+}
+
+.menu li {
+  width: 125px;
+  height: 50px;
+  transition: background-position-x 0.9s linear;
+  text-align: center;
+
+  a {
+    font-size: 22px;
+    color: #777;
+    text-decoration: none;
+    transition: all 0.45s;
+  }
+

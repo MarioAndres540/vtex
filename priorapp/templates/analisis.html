@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'vitrinaimagen.css' %}">
+    <body>
+        <nav>
+                <a href="#" onClick="location.href = '/';">Cargar</a>
+                <a href="#" onClick="location.href = '/cargar/';">Análisis</a>
+                <a href="#" onClick="location.href = '/priorizar/';">Priorización</a>
+                <a href="#">Vitrina</a>
+                <a href="#">Exportar</a>
+                <div class="animation start-home"></div>
+        </nav>
+        <h1>Página de Análisis</h1>
+        <h2>
+                Archivo cargado: Largo: {{largo}}
+        </h2>
+
+        <h2>
+            Resumen por tipo de prenda <br>
+            <img src="data:image/png;base64,{{ graphic2 }}">
+        </h2>
+        <h2>
+            Grafica por talla <br>
+            <img src="data:image/png;base64,{{ graphic1 }}">
+        </h2>
+        <h2>
+            Grafica por prenda <br>
+            <img src="data:image/png;base64,{{ graphic }}">
+        </h2>
+        <h2>
+            Grafica de Destallados <br>
+            <img src="data:image/png;base64,{{ graphic3 }}"><br>
+            Grafica de Destallados por tipo de prenda <br>
+            <img src="data:image/png;base64,{{ graphic4 }}">
+        </h2>
+
+    </body>
+</html>

@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="{% static 'vitrinaimagen.css' %}">
+
+<script type="text/javascript">
+function myNewFunction(sel) {
+  alert(sel.options[sel.selectedIndex].text);
+}
+</script>
+
+<body>
+
+<nav>
+	<a href="#" onClick="location.href = '/';">Cargar</a>
+	<a href="#" onClick="location.href = '/cargar/';">Análisis</a>
+	<a href="#">Priorización</a>
+	<a href="#">Vitrina</a>
+	<a href="#">Exportar</a>
+	<div class="animation start-home"></div>
+</nav>
+
+
+<h1>Configurar priorización para el ordenamiento</h1>
+
+<h2>
+	Archivo cargado:
+	Largo: {{largo}}
+</h2>
+<h3>
+      Ordenar vitrina:
+      <table>
+            <tr style="font-weight:bold">
+                <td width="20%">Orden</td>
+                <td width="20%">Variable</td>
+                <td width="20%">Sentido</td>
+                <td width="20%">id</td>
+                <td width="20%">nom-var</td> 
+                <td width="20%">Acción</td>
+            </tr>  
+            {% for r in myordendj %}
+                <tr>
+                    <td width="20%" name ="oorf" >{{ r.ordenv }}</td>
+                    <td width="20%">{{ r.nom_var }}</td>
+                    <td><button type="submit" name="senti" onClick="location.href = 'sentido/{{ r.id }}';">{{ r.sentido }}</button></td>
+                    <td width="20%">{{ r.id }}</td>
+                    <td width="20%">
+                        <form name="filter{{r.id}}" method = "post" action = "{% url 'veroq' %}">
+                            {% csrf_token %}
+                            <select name = "drop4" onChange="filter{{r.id}}.submit();">
+                                {% for p in variablesd %}
+                                    <option value ="{{ r.id }}-{{ p.nom_var }}" {% if p.nom_var == r.nom_var %} selected{% endif %}>{{ p.nom_var }} </option>
+                                {% endfor %}
+                             </select>
+                        </form>
+
+                    </td>
+                    <td>
+                        <button type="submit" name="borr" onClick="location.href = 'ordup/{{ r.id }}';">&#x2191</button>
+                        <button type="submit" name="borr" onClick="location.href = 'deleteord/{{ r.id }}';">X</button>
+                        <button type="submit" name="borr" onClick="location.href = 'orddn/{{ r.id }}';">&#x2193</button>
+                    </td>
+                </tr>
+            {%  endfor %}         
+      </table>
+<td><button type="submit" name="idadd" onClick="location.href = '/priorizar/addord/';">Nueva Línea</button></td>
+<td><button type="submit" name="idadd" onClick="location.href = '/priorizar/genvit/';">Generar Vitrina</button></td>
+</h3>
+
+
+<form method="POST" action = "">
+    <p>
+    texto
+    </p>
+   <select name = "selopt" id="sel17" >
+   {% for p in variablesd %}
+     <option value ="{{ p.id }}" name ="val" selected="selected1">{{ p.nom_var }}  </option>
+   {% endfor %}
+  </select>
+    <input type="hidden" name="selector" value="1"/>
+</form> 
+<p>
+Opcion2
+</p>
+
+<select id="box1" name="box2" onChange="myNewFunction(this);">
+  <option value="98">dog</option>
+  <option value="7122">cat</option>
+  <option value="142">bird</option>
+  <p>
+    Opcion7
+  </p>
+</select>
+
+
+
+
+Opcion3
+<form name='filter' method = "post" action = "{% url 'verop2' %}">
+    {% csrf_token %}
+    <label class="mainlbl">Opción3a</label>
+    <select name = "drop3" onChange="filter.submit();">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+</form>
+
+
+
+
+
+
+<p>
+resultado:  box1.options[sel.selectedIndex].text
+</p>
+
+
+
+<p>
+{{variablesd}}
+</p>
+
+
+<h3>Members
+<table border="3">
+	<tr>
+		<td>id</td>
+		<td>Nombre</td>
+		<td>Apellido</td>
+		<td>Borrar</td>
+	</tr>
+	{% for x in mymembers %}
+		<tr>
+			<td><a href="update/{{ x.id }}">{{ x.id }}</a></td>
+			<td>{{ x.firstname }}</td>
+			<td>{{ x.lastname }}</td>
+			<td><button type="submit" name="borr" onClick="location.href = 'delete/{{ x.id }}';">Borrar</button></td>
+		</tr>
+	{% endfor %}
+</table>
+<td><button type="submit" name="idadd" onClick="location.href = '/priorizar/add/';">Nuevo</button></td>
+</h3>
+                        <form name='filterr' id='fil'+r.id method = "post" action = "{% url 'veroq' %}">
+                            {% csrf_token %}
+                            <select name = "drop4" id='sel'+r.id onChange="filterr.submit();">
+                                {% for p in variablesd %}
+                                    <option value ="{{ r.id }}-{{ p.nom_var }}" {% if p.nom_var == r.nom_var %} selected{% endif %}>{{ p.nom_var }} </option>
+                                {% endfor %}
+                             </select>
+                             <input class="btn btn-ocean btn-side-bar" type = "submit" value="Submit">
+                        </form>
+
+
+
+
+                        Opcion3
+                            <form name="filter{{r.id}}" method = "post" action = "{% url 'verop2' %}">
+                            {% csrf_token %}
+                            <label class="mainlbl">Opción3a</label>
+                            <select name = "dropnom" onChange="filter{{r.id}}.submit();">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </form>
+
+</body>
+</html>
