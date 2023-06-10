@@ -708,4 +708,3 @@ def escribeggd(spreadsheetid,datos,rangeid,metodo):
     return respuesta    
 
 
-"fin del codigo"
