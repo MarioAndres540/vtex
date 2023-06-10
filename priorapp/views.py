@@ -91,6 +91,7 @@ def cargar(request):
     set_num	=int(vitr.Min_unidades.values[0])
     observ	=int(vitr.Observaciones.values[0])
     nombre	=vitr.nom_vitrina.values[0]
+    #preguntar
     filename=np.datetime64('today').astype(str)+'_'+nombre+ '.xlsx'
     filevtex=np.datetime64('today').astype(str)+'_'+nombre+'_vtex.xls'
     file_descuentos='Observaciones_Dctos.xlsx'
