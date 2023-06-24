@@ -60,8 +60,8 @@ def cargar(request):
     t0=time.time()
     #Leer datos de GGD
     #Variables
-    spreadsheetid = '1bVx_Mj0BVjKB6RLThoB23V60KBxARv3r_diUIclhdBw' #Producción
-    #spreadsheetid ='19hZ-iIsS5E8ABcGnCulmVUTtk9oXW7EhzD0KBrm2G4Y' # Test
+    #spreadsheetid = '1bVx_Mj0BVjKB6RLThoB23V60KBxARv3r_diUIclhdBw' #Producción
+    spreadsheetid ='19hZ-iIsS5E8ABcGnCulmVUTtk9oXW7EhzD0KBrm2G4Y' # Test
     rangeid ='Vitrinas!A1:H'
     leeidoggd = lerGGD(spreadsheetid,rangeid)
     vitrinas=pd.DataFrame(leeidoggd[1:],columns=leeidoggd[0])
